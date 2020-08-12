@@ -3,10 +3,12 @@ import styled, { withTheme } from 'styled-components'
 import HistoryModal from './components/HistoryModal'
 import Button from './components/primitives/Button'
 import RegistryCard from './components/RegistryCard'
+import Grid from './components/primitives/Grid'
 import {
   Cherry, CashierIcon, Settings, Person
 } from './components/primitives/Icon'
 import Jackpot from './components/Jackpot'
+import MusculBones from './components/MusculBones'
 
 const App = ({ theme }) => {
   const [historyModalShow, setHistoryModalShow] = useState(false)
@@ -58,12 +60,29 @@ const App = ({ theme }) => {
       </div>
     </TabMenu>
   )
+  const renderCards = () => (
+    <Grid style={{ marginTop: 10 }}>
+      {[...Array(8)].map((_, index) => (
+        <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
+          <RegistryCard total={Math.floor(Math.random() * 3) + 3} full={Math.floor(Math.random() * 5) + 0} />
+        </Grid.Item>
+      ))}
+    </Grid>
+  )
 
   return (
     <Container color={theme.color.mainBlack}>
       <div style={{ width: '80%', margin: 'auto', padding: '2rem 0' }}>
         {renderHeader()}
-        {renderTab()}
+        <div style={{ display: 'flex', marginTop: '1.5rem' }}>
+          <LeftContainer>
+            {renderTab()}
+            {renderCards()}
+          </LeftContainer>
+          <RightContainer>
+            <MusculBones />
+          </RightContainer>
+        </div>
       </div>
       {historyModalShow && renderHistoryModal()}
     </Container>
@@ -98,6 +117,12 @@ const CashierBtn = styled.button`
   font-weight: bold;
   margin-right: 3.5rem;
 `
+const LeftContainer = styled.div`
+width: calc(80% - 20px);
+  @media (max-width: 576px){
+  width: calc(100% - 10px);
+}
+`
 const TabMenu = styled.section`
   display: flex;
   padding: 0 1.35rem;
@@ -105,12 +130,12 @@ const TabMenu = styled.section`
   background-color: #3D2F60;
   border-radius: 5px;
   height: 3.75rem;
-  margin-top: 1.5rem;
-  width: calc(80% - 10px);
+  width: calc(100% - 10px);
   @media (max-width: 576px){
     flex-direction: column;
     height: 4.25rem;
     justify-content: center;
+    width: calc(100% - 10px);
   }
 `
 const JackpotMainContainer = styled.div`
@@ -129,5 +154,8 @@ const JackpotSubContainer = styled.div`
   @media (max-width: 768px){
     margin: 1rem 0;
   }
+`
+const RightContainer = styled.div`
+  width: calc(20% - 5px);
 `
 export default withTheme(App)

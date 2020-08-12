@@ -1,26 +1,26 @@
 import React from 'react'
 import PersonIndicator from '../primitives/PersonIndicator'
+import { Person } from '../primitives/Icon'
 import {
-  StyledContainer, StyledNumberIndicator, StyledNumberIndicatorContainer, StyledNumberIndicatorBorder, StyledPrizeContainer, StyledPriceIndicator
+  StyledContainer, StyledNumberIndicator, StyledNumberIndicatorContainer, StyledNumberIndicatorBorder, StyledPrizeContainer, StyledPrizeSubTxt, StyledPrizeMainTxt
 } from './styled'
 import Button from '../primitives/Button'
+import CostButton from '../primitives/CostButton'
 
-const RegistryCard = () => (
+const RegistryCard = ({ ...rest }) => (
   <StyledContainer>
     <StyledNumberIndicatorContainer>
       <StyledNumberIndicator>
-            5 კაციანი
+        <Person full />  {rest.total} კაციანი
       </StyledNumberIndicator>
       <StyledNumberIndicatorBorder />
     </StyledNumberIndicatorContainer>
     <StyledPrizeContainer>
-      <p style={{ fontSize: 60, margin: 0 }}>5000<span style={{ fontSize: 20 }}>GEL</span></p>
-      <p>მაქს. მოგება</p>
+      <StyledPrizeMainTxt>5000<span style={{ fontSize: '1.25rem' }}>GEL</span></StyledPrizeMainTxt>
+      <StyledPrizeSubTxt>მაქს. მოგება</StyledPrizeSubTxt>
     </StyledPrizeContainer>
-    <PersonIndicator />
-    <StyledPriceIndicator>
-        5 ლარი
-    </StyledPriceIndicator>
+    <PersonIndicator {...rest} />
+    <CostButton cost={rest.total} />
     <Button fluid>რეგისტრაცია</Button>
   </StyledContainer>
 )

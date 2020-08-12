@@ -27,7 +27,7 @@ const StyledContainer = styled.button`
         return css`
             background-color: ${props.theme.palette[props.color][200]};
             color: ${props.theme.palette[props.color][1000]};
-            padding: 20px;
+            padding: 1.4rem 0;
           `
     }
   }};
