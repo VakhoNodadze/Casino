@@ -1,14 +1,15 @@
 import React from 'react'
 
 
-export const Person = ({ full, large }) => {
+export const Person = ({ full, large, margin }) => {
   const color = large ? '#1b606b' : '#3c2c63'
   const style = {
     fill: full > 0 ? '#95ee9d' : color
   }
   const styleSize = {
     width: large ? '2.2rem' : '1.375rem',
-    height: large ? '2.2rem' : '1.375rem'
+    height: large ? '2.2rem' : '1.375rem',
+    margin
   }
   return (
     <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22" style={styleSize}>

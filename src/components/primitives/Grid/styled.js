@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   flex-grow: 1;
-  width: calc(100% - 0px);
+  width: calc(100% + 10px);
   margin: 0 -5px;
   & > .item {
     padding: 5px;

@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import styled, { withTheme } from 'styled-components'
-import HistoryModal from './components/HistoryModal'
-import Button from './components/primitives/Button'
-import RegistryCard from './components/RegistryCard'
 import Grid from './components/primitives/Grid'
+import Tab from './components/primitives/Tab'
+import HistoryModal from './components/HistoryModal'
+import RegistryCard from './components/RegistryCard'
 import {
   Cherry, CashierIcon, Settings, Person
 } from './components/primitives/Icon'
 import Jackpot from './components/Jackpot'
 import MusculBones from './components/MusculBones'
+import TopWinItem from './components/TopWinItem'
 
 const App = ({ theme }) => {
   const [historyModalShow, setHistoryModalShow] = useState(false)
@@ -44,40 +45,106 @@ const App = ({ theme }) => {
       </div>
     </Header>
   )
-  const renderTab = () => (
-    <TabMenu>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <p style={{ color: '#FFFF00', fontSize: '0.9rem', margin: '0 1.2rem 0 0' }}>ALL GAMES</p>
-        <p style={{ color: '#ffff', fontSize: '0.9rem', margin: '0 1.2rem' }}>Only 3 PLAYER</p>
-        <p style={{ color: '#ffff', fontSize: '0.9rem', margin: '0 1.2rem' }}>ONLY 5 PLAYER</p>
-      </div>
-      <div style={{
-        fontSize: '0.875rem', color: '#fff', display: 'flex', alignItems: 'center'
-      }}
-      >
-        <Person full />
-        Online Players: 4364
-      </div>
-    </TabMenu>
-  )
-  const renderCards = () => (
+  const totalPlayers = [3, 5]
+  const renderCards = (total) => (
     <Grid style={{ marginTop: 10 }}>
       {[...Array(8)].map((_, index) => (
         <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
-          <RegistryCard total={Math.floor(Math.random() * 3) + 3} full={Math.floor(Math.random() * 5) + 0} />
+          <RegistryCard total={total || totalPlayers[Math.floor(Math.random() * totalPlayers.length)]} full={Math.floor(Math.random() * 5) + 0} />
         </Grid.Item>
       ))}
     </Grid>
+  )
+  const playerPanes = [
+    {
+      title: 'All Games',
+      render: () => renderCards()
+    },
+    {
+      title: 'Only 3 Player',
+      render: () => renderCards(totalPlayers[0])
+    },
+    {
+      title: 'Only 5 Player',
+      render: () => renderCards(totalPlayers[1])
+    }
+  ]
+  const renderGames = () => (
+    <>
+      <Tab
+        yellow
+        panes={playerPanes}
+        rightContent={(
+          <div style={{
+            fontSize: '0.875rem', color: '#fff', display: 'flex', alignItems: 'center'
+          }}
+          >
+            <Person full />
+        Online Players: 4364
+          </div>
+)}
+      />
+      </>
+  )
+
+  const renderTop = () => (
+    <TopWinItem />
+  )
+  const renderLeaderBoard = () => (
+    <div style={{
+      height: 490, display: 'flex', justifyContent: 'center', alignItems: 'center'
+    }}
+    >
+      <h1 style={{ color: '#fff' }}>This is the Leadeboard Department</h1>
+    </div>
+  )
+  const renderHistory = () => (
+    <div style={{
+      height: 490, display: 'flex', justifyContent: 'center', alignItems: 'center'
+    }}
+    >
+      <h1 style={{ color: '#fff' }}>This is the History Department</h1>
+    </div>
+  )
+  const renderRules = () => (
+    <div style={{
+      height: 490, display: 'flex', justifyContent: 'center', alignItems: 'center'
+    }}
+    >
+      <h1 style={{ color: '#fff' }}>This is the Rules department</h1>
+    </div>
+  )
+
+  const panes = [
+    {
+      title: 'ტოპ მოგებები',
+      render: () => renderTop()
+    },
+    {
+      title: 'ლიდერბორდი',
+      render: () => renderLeaderBoard()
+    },
+    {
+      title: 'ისტორია',
+      render: () => renderHistory()
+    },
+    {
+      title: 'წესები',
+      render: () => renderRules()
+    }
+  ]
+  const renderTopWinsTab = () => (
+    <Tab panes={panes} transparent />
   )
 
   return (
     <Container color={theme.color.mainBlack}>
       <div style={{ width: '80%', margin: 'auto', padding: '2rem 0' }}>
         {renderHeader()}
-        <div style={{ display: 'flex', marginTop: '1.5rem' }}>
+        <div style={{ display: 'flex', marginTop: '1.5rem', justifyContent: 'space-between' }}>
           <LeftContainer>
-            {renderTab()}
-            {renderCards()}
+            {renderGames()}
+            {renderTopWinsTab()}
           </LeftContainer>
           <RightContainer>
             <MusculBones />
@@ -122,21 +189,6 @@ width: calc(80% - 20px);
   @media (max-width: 576px){
   width: calc(100% - 10px);
 }
-`
-const TabMenu = styled.section`
-  display: flex;
-  padding: 0 1.35rem;
-  justify-content: space-between;
-  background-color: #3D2F60;
-  border-radius: 5px;
-  height: 3.75rem;
-  width: calc(100% - 10px);
-  @media (max-width: 768px){
-    flex-direction: column;
-    height: 4.25rem;
-    justify-content: center;
-    width: calc(100% - 10px);
-  }
 `
 const JackpotMainContainer = styled.div`
   display: flex;
