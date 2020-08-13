@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import ModalHeader from './ModalHeader'
-import ModalContent from './ModalContent'
 
 import { StyledOverlay, StyledContainer, StyledClose } from './styled'
 import { Remove } from '../Icon'
@@ -87,8 +85,5 @@ Modal.defaultProps = {
   closeConfirmation: false,
   Confirmation: null
 }
-
-Modal.Header = ModalHeader
-Modal.Content = ModalContent
 
 export default Modal

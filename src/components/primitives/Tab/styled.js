@@ -23,12 +23,18 @@ const PanesContainer = styled.div`
 `
 const PanelsItem = styled.div`
   margin: 1rem;
-  padding-bottom: 0.7rem;
-  border-bottom: ${props => props.active ? '4px solid #6D728E' : 0};
+  margin-bottom: 0.7rem;
   cursor: pointer;
-  color: ${props => props.active && props.yellow ? '#FFFF00' : '#fff'}
+  color: ${props => props.active && props.color ? props.color : '#fff'}
+`
+const Border = styled.div`
+  display: ${props => props.active ? 'block' : 'none'};
+  width: calc(100% - 1.5rem);
+  margin: auto;
+  height: 4px;
+  background-color: ${props => props.borderColor || '#6D728E'};
 `
 
 export {
-  StyledContainer, PanesContainer, PanelsItem, PanelContainer
+  StyledContainer, PanesContainer, PanelsItem, PanelContainer, Border
 }

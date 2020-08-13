@@ -3,19 +3,39 @@ import styled, { withTheme } from 'styled-components'
 import Grid from './components/primitives/Grid'
 import Tab from './components/primitives/Tab'
 import HistoryModal from './components/HistoryModal'
-import RegistryCard from './components/RegistryCard'
+import GameModal from './components/GameModal'
+import RegistryCardItem from './components/RegistryCardItem'
 import {
   Cherry, CashierIcon, Settings, Person
 } from './components/primitives/Icon'
 import Jackpot from './components/Jackpot'
 import MusculBones from './components/MusculBones'
 import TopWinItem from './components/TopWinItem'
+import TopSpinItem from './components/TopSpinItem'
 
 const App = ({ theme }) => {
   const [historyModalShow, setHistoryModalShow] = useState(false)
+  const [gameModalShow, setGameModalShow] = useState(false)
 
+  const handleHistoryModalOpen = () => {
+    setHistoryModalShow(true)
+  }
+  const handleHistoryModalClose = () => {
+    setHistoryModalShow(false)
+  }
+  const handleGameModalOpen = () => {
+    setGameModalShow(true)
+  }
+  const handleGameModalClose = () => {
+    setGameModalShow(false)
+    console.log('testt')
+  }
+
+  const renderGameModal = () => (
+    <GameModal isOpen={() => handleGameModalOpen()} onClose={() => handleHistoryModalClose()} />
+  )
   const renderHistoryModal = () => (
-    <HistoryModal isOpen={() => setHistoryModalShow(true)} onClose={() => setHistoryModalShow(false)} />
+    <HistoryModal isOpen={() => handleHistoryModalOpen()} onClose={() => handleGameModalClose()} />
   )
   const renderHeader = () => (
     <Header>
@@ -50,7 +70,7 @@ const App = ({ theme }) => {
     <Grid style={{ marginTop: 10 }}>
       {[...Array(8)].map((_, index) => (
         <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
-          <RegistryCard total={total || totalPlayers[Math.floor(Math.random() * totalPlayers.length)]} full={Math.floor(Math.random() * 5) + 0} />
+          <RegistryCardItem total={total || totalPlayers[Math.floor(Math.random() * totalPlayers.length)]} full={Math.floor(Math.random() * 5) + 0} />
         </Grid.Item>
       ))}
     </Grid>
@@ -72,7 +92,8 @@ const App = ({ theme }) => {
   const renderGames = () => (
     <>
       <Tab
-        yellow
+        color="#FFFF00"
+        borderColor="#FF00B2"
         panes={playerPanes}
         rightContent={(
           <div style={{
@@ -137,6 +158,13 @@ const App = ({ theme }) => {
     <Tab panes={panes} transparent />
   )
 
+  const renderTopSpin = () => (
+    <TopSpinContainer>
+      <TopSpinHeader onClick={() => handleGameModalOpen()}>ტოპ სპინები</TopSpinHeader>
+      {[...Array(5)].map((_, index) => <TopSpinItem key={index} />)}
+    </TopSpinContainer>
+  )
+
   return (
     <Container color={theme.color.mainBlack}>
       <div style={{ width: '80%', margin: 'auto', padding: '2rem 0' }}>
@@ -147,11 +175,13 @@ const App = ({ theme }) => {
             {renderTopWinsTab()}
           </LeftContainer>
           <RightContainer>
-            <MusculBones />
+            <MusculBones onClick={handleHistoryModalOpen} />
+            {renderTopSpin()}
           </RightContainer>
         </div>
       </div>
       {historyModalShow && renderHistoryModal()}
+      {gameModalShow && renderGameModal()}
     </Container>
   )
 }
@@ -209,8 +239,28 @@ const JackpotSubContainer = styled.div`
 `
 const RightContainer = styled.div`
   width: calc(20% - 5px);
+  display: flex;
+  flex-direction: column;
   @media (max-width: 768px){
     display: none;
   }
+`
+const TopSpinContainer = styled.div`
+  width: 100%;
+  padding: 1rem 0.7rem 0.7rem 0.7rem;
+  background-color: #35364A;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.3rem;
+  margin-top: 0.7rem;
+  height: 100%;
+`
+const TopSpinHeader = styled.p`
+  font-size: 1rem;
+  color: #fff;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid #BDC63E;
 `
 export default withTheme(App)

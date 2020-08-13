@@ -14,6 +14,9 @@ const Container = styled.div`
     &:nth-of-type(even) {
         background-color: #272936;
     }
+    &:last-of-type{
+        margin-bottom: 0;
+    }
 `
 const ContentItem = styled.div`
     display: flex;

@@ -10,7 +10,7 @@ const StyledContainer = styled.button`
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    height: 3.8rem;
+    height: 3.875rem;
     ${props => {
     switch (props.variant) {
       case 'close':
@@ -24,6 +24,7 @@ const StyledContainer = styled.button`
     ? props.theme.palette[props.color][300]
     : props.theme.palette[props.color][200]};
             color: ${props.theme.palette[props.color][1000]};
+            width: 8.4rem;
           `
       default:
         return css`

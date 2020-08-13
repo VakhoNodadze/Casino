@@ -16,7 +16,8 @@ const History = styled.button`
     align-self: flex-end;
     padding: 0.65rem;
     display: flex;
-    align-items: center
+    align-items: center;
+    cursor: pointer;
 `
 const CherryContainer = styled.div`
     border-radius: 50%;

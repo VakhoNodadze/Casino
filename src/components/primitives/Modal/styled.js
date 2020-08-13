@@ -80,35 +80,20 @@ const StyledContainer = styled.div`
   }
 `
 
-const StyledContent = styled.div`
-  padding: 10px;
-  /* max-height: 80vh; */
-`
-
-const StyledHeader = styled.div`
-  width: '100%';
-  color: #fff;
-  margin: 0;
-  padding: 10px;
-  border-radius: 10px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background-color: ${props => props.theme.color.modalBG};
-`
 
 const StyledClose = styled.div`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.7rem;
+  right: 0.7rem;
   border-radius: 10rem;
   cursor: pointer;
   display: flex;
-  height: 34px;
-  width: 34px;
+  height: 2rem;
+  width: 2rem;
   justify-content: center;
   align-items: center;
 `
 
 export {
-  StyledOverlay, StyledContainer, StyledContent, StyledHeader, StyledClose
+  StyledOverlay, StyledContainer, StyledClose
 }

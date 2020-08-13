@@ -7,7 +7,7 @@ import {
 import Button from '../primitives/Button'
 import CostButton from '../primitives/CostButton'
 
-const RegistryCard = ({ ...rest }) => (
+const RegistryCardItem = ({ ...rest }) => (
   <StyledContainer>
     <StyledNumberIndicatorContainer>
       <StyledNumberIndicator>
@@ -24,4 +24,4 @@ const RegistryCard = ({ ...rest }) => (
   </StyledContainer>
 )
 
-export default RegistryCard
+export default RegistryCardItem

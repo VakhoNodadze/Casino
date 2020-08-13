@@ -7,9 +7,9 @@ import {
 } from './styled'
 import Button from '../primitives/Button'
 
-const MusculBones = () => (
+const MusculBones = ({ onClick }) => (
   <MainContainer>
-    <History>
+    <History onClick={() => onClick()}>
       <Time /> ისტორია
     </History>
     <CherryContainer>
