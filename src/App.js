@@ -131,7 +131,7 @@ const TabMenu = styled.section`
   border-radius: 5px;
   height: 3.75rem;
   width: calc(100% - 10px);
-  @media (max-width: 576px){
+  @media (max-width: 768px){
     flex-direction: column;
     height: 4.25rem;
     justify-content: center;
@@ -157,5 +157,8 @@ const JackpotSubContainer = styled.div`
 `
 const RightContainer = styled.div`
   width: calc(20% - 5px);
+  @media (max-width: 768px){
+    display: none;
+  }
 `
 export default withTheme(App)

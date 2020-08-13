@@ -9,6 +9,8 @@ const StyledContainer = styled.button`
     font-size: 1.3rem;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
+    height: 3.8rem;
     ${props => {
     switch (props.variant) {
       case 'close':
@@ -27,10 +29,16 @@ const StyledContainer = styled.button`
         return css`
             background-color: ${props.theme.palette[props.color][200]};
             color: ${props.theme.palette[props.color][1000]};
-            padding: 1.4rem 0;
           `
     }
   }};
+  ${props => props.circular
+    && css`
+      border-radius: 1.68rem;
+      padding: 0.625rem 1.5rem 0.625rem 0.625rem;
+      height: 2.8rem;
+      font-size: 0.7rem;
+    `};
 `
 
 export default StyledContainer

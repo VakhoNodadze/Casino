@@ -40,15 +40,12 @@ const StyledNumberIndicator = styled.p`
     font-size: 1rem;
     display: flex;
     justify-self: flex-start;
+    border-bottom: 4px solid #95C7EE;
+    padding-bottom: 5px;
     margin: 0 0 5px 0;
-`
-const StyledNumberIndicatorBorder = styled.div`
-    height: 4px;
-    background-color: #95C7EE;
-    width: 100%:
 `
 
 
 export {
-  StyledContainer, StyledNumberIndicatorContainer, StyledNumberIndicatorBorder, StyledNumberIndicator, StyledPrizeContainer, StyledPrizeMainTxt, StyledPrizeSubTxt
+  StyledContainer, StyledNumberIndicatorContainer, StyledNumberIndicator, StyledPrizeContainer, StyledPrizeMainTxt, StyledPrizeSubTxt
 }

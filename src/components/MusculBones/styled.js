@@ -29,5 +29,11 @@ const CherryContainer = styled.div`
     justify-content: center;
     align-items: center;
 `
+const MusculBonesTxt = styled.p `
+    color: #fff;
+    margin: 1rem 0;
+    font-size: 1.625rem;
+    align-self: center;
+`
 
-export { MainContainer, History, CherryContainer }
+export { MainContainer, History, CherryContainer, MusculBonesTxt }
