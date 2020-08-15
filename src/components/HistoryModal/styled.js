@@ -53,6 +53,7 @@ const StyledInformation = styled.div`
     }
     &:nth-of-type(5){
         width: 20%;
+        align-items: flex-start;
     }
 `
 export {

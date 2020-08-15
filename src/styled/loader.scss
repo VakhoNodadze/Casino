@@ -1,0 +1,44 @@
+body {
+    background: #4d4d4d;
+  }
+  
+  .wrapper{
+    width: 570px;
+    margin: 50px auto;
+  }
+  .progress-horizontal {
+    display: block;
+    width: 80%;
+    height: 4px;
+    position: relative;
+    margin: auto;
+    background-color: #26C6DF;
+  }
+  
+  .bar-horizontal {
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin-left: 0;
+    background-color: #17FF4D;
+    animation: 1s linear 1s infinite running slidein;
+  }
+  
+  @keyframes spinner {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @keyframes slidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 90%;
+    }
+  }

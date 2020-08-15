@@ -5,6 +5,8 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 import GlobalStyle from './styled/global'
+import './styled/fonts.scss'
+import './styled/loader.scss'
 import Theme from './styled/themes'
 
 ReactDOM.render(

@@ -12,10 +12,14 @@ import Jackpot from './components/Jackpot'
 import MusculBones from './components/MusculBones'
 import TopWinItem from './components/TopWinItem'
 import TopSpinItem from './components/TopSpinItem'
+import GamePopup from './components/GamePopup'
 
+const TOTALPLAYERS = [3, 5]
 const App = ({ theme }) => {
   const [historyModalShow, setHistoryModalShow] = useState(false)
   const [gameModalShow, setGameModalShow] = useState(false)
+  const [popupShow, setPopupShow] = useState(false)
+  const [roomSize, setRoomSize] = useState(0)
 
   const handleHistoryModalOpen = () => {
     setHistoryModalShow(true)
@@ -28,14 +32,21 @@ const App = ({ theme }) => {
   }
   const handleGameModalClose = () => {
     setGameModalShow(false)
-    console.log('testt')
+  }
+  const handlePopupOpen = () => {
+    setPopupShow(true)
+  }
+  const handlePopUpClose = () => {
+    setTimeout(() => {
+      setPopupShow(false)
+    }, 1500)
   }
 
   const renderGameModal = () => (
-    <GameModal isOpen={() => handleGameModalOpen()} onClose={() => handleHistoryModalClose()} />
+    <GameModal isOpen={gameModalShow} onClose={() => handleGameModalClose()} />
   )
   const renderHistoryModal = () => (
-    <HistoryModal isOpen={() => handleHistoryModalOpen()} onClose={() => handleGameModalClose()} />
+    <HistoryModal isOpen={historyModalShow} onClose={() => handleHistoryModalClose()} />
   )
   const renderHeader = () => (
     <Header>
@@ -65,15 +76,17 @@ const App = ({ theme }) => {
       </div>
     </Header>
   )
-  const totalPlayers = [3, 5]
   const renderCards = (total) => (
-    <Grid style={{ marginTop: 10 }}>
+    <Grid style={{ marginTop: '0.7rem' }}>
       {[...Array(8)].map((_, index) => (
         <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
-          <RegistryCardItem total={total || totalPlayers[Math.floor(Math.random() * totalPlayers.length)]} full={Math.floor(Math.random() * 5) + 0} />
+          <RegistryCardItem setRoomSize={setRoomSize} onRegister={() => handlePopupOpen()} total={total || TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)]} full={Math.floor(Math.random() * 5) + 0} />
         </Grid.Item>
       ))}
     </Grid>
+  )
+  const renderPopup = () => (
+    <GamePopup onFull={() => handlePopUpClose()} isOpen={popupShow} roomSize={roomSize} />
   )
   const playerPanes = [
     {
@@ -82,11 +95,11 @@ const App = ({ theme }) => {
     },
     {
       title: 'Only 3 Player',
-      render: () => renderCards(totalPlayers[0])
+      render: () => renderCards(TOTALPLAYERS[0])
     },
     {
       title: 'Only 5 Player',
-      render: () => renderCards(totalPlayers[1])
+      render: () => renderCards(TOTALPLAYERS[1])
     }
   ]
   const renderGames = () => (
@@ -167,7 +180,7 @@ const App = ({ theme }) => {
 
   return (
     <Container color={theme.color.mainBlack}>
-      <div style={{ width: '80%', margin: 'auto', padding: '2rem 0' }}>
+      <div style={{ width: '80%', margin: 'auto' }}>
         {renderHeader()}
         <div style={{ display: 'flex', marginTop: '1.5rem', justifyContent: 'space-between' }}>
           <LeftContainer>
@@ -182,6 +195,7 @@ const App = ({ theme }) => {
       </div>
       {historyModalShow && renderHistoryModal()}
       {gameModalShow && renderGameModal()}
+      {popupShow && renderPopup()}
     </Container>
   )
 }
@@ -189,10 +203,12 @@ const App = ({ theme }) => {
 const Container = styled.div`
   width: 100%;
   background-color: ${props => props.color};
+  padding: 2rem 0 4rem 0;
 `
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  height: 4rem;
 
 `
 const LeaderJackpotPar = styled.p`

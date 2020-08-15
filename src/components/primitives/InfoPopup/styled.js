@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+
 const StyledOverlay = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   top: 0;
   left: 0;
@@ -33,23 +34,22 @@ const StyledOverlay = styled.div`
     }
   }};
 `
+const StyledPositionContainer = styled.div`
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  justify-content: flex-start;
+  margin-top 12.2rem;
+`
+const StyledHoldContainer = styled.div`
+  width: calc(80% - 20px);
+  height: 100%;
+`
+
 const StyledContainer = styled.div`
-  position: absolute;
-  min-height: 200px;
-  min-width: 240px;
-  max-width: 96%;
-  width: ${props => {
-    switch (props.size) {
-      case 'large':
-        return '964px'
-      case 'medium':
-        return '815px'
-      case 'small':
-        return '450px'
-      default:
-        return props.size
-    }
-  }};
+  height: 21.3125rem;
+  padding: 0.7rem 1.2rem;
+  width: 100%;
   background-color: ${props => props.background || '#fff'};
   border-radius: 10px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
@@ -74,19 +74,6 @@ const StyledContainer = styled.div`
 `
 
 
-const StyledClose = styled.div`
-  position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
-  border-radius: 10rem;
-  cursor: pointer;
-  display: flex;
-  height: 2rem;
-  width: 2rem;
-  justify-content: center;
-  align-items: center;
-`
-
 export {
-  StyledOverlay, StyledContainer, StyledClose
+  StyledOverlay, StyledPositionContainer, StyledHoldContainer, StyledContainer
 }

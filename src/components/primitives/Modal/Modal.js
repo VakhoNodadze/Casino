@@ -10,10 +10,8 @@ const Modal = ({
   isOpen,
   onClose,
   hasCloseIcon,
-  closeIconColor,
   children,
   size,
-  scrolling,
   closeConfirmation,
   Confirmation,
   background
@@ -32,7 +30,7 @@ const Modal = ({
     () => {
       setTimeout(() => {
         if (isOpen) setFadeType('in')
-      }, 0)
+      }, 200)
     },
     [isOpen]
   )
@@ -41,16 +39,15 @@ const Modal = ({
     return ReactDOM.createPortal(
       <StyledOverlay isOpen={isOpen} onClick={handleClose} fadeType={fadeType}>
         <StyledContainer
-          className="intrro-modal"
+          className="modal"
           onClick={e => e.stopPropagation()}
           fadeType={fadeType}
           size={size}
-          scrolling={scrolling}
           background={background}
         >
           {hasCloseIcon && (
             <StyledClose onClick={handleClose}>
-              <Remove color={closeIconColor} />
+              <Remove />
             </StyledClose>
           )}
           {children}
@@ -70,7 +67,6 @@ Modal.propTypes = {
   hasCloseIcon: PropTypes.bool,
   closeIconColor: PropTypes.string,
   size: PropTypes.string,
-  scrolling: PropTypes.bool,
   closeConfirmation: PropTypes.bool,
   Confirmation: PropTypes.object
 }
@@ -81,7 +77,6 @@ Modal.defaultProps = {
   hasCloseIcon: true,
   closeIconColor: null,
   size: 'default',
-  scrolling: false,
   closeConfirmation: false,
   Confirmation: null
 }

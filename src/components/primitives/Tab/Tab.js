@@ -21,7 +21,7 @@ const Tab = ({
     <PanelContainer {...rest}>
       <PanesContainer>
         {panes.map((item, index) => (
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }} key={index}>
             <PanelsItem
               key={item.title}
               onClick={() => handleItemClick(index)}

@@ -24,7 +24,7 @@ const TopWinItem = () => (
         </TopWinContentItem>
       </TopWinHeader>
       {[...Array(8)].map((_, index) => (
-        <Container>
+        <Container key={index}>
           <ContentItem>
             <Cherry />
             <div style={{

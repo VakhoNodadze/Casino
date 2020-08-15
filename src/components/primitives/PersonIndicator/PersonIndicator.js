@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Person } from '../Icon'
 import StyledContainer from './styled'
 
-const PersonIndicator = ({ total, full, large }) => (
+const PersonIndicator = ({ total, full, ...rest }) => (
   <StyledContainer>
-    {[...Array(total)].map((_, index) => (<Person key={index} full={full--} large={large} />))}
+    {[...Array(total)].map((_, index) => (<Person key={index} full={full--} {...rest} />))}
   </StyledContainer>
 )
 

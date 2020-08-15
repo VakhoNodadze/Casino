@@ -1,10 +1,10 @@
 import React from 'react'
 import StyledContainer from './styled'
 
-const Costbutton = ({ cost }) => (
-  <StyledContainer>
+const Cost = ({ cost, ...rest }) => (
+  <StyledContainer {...rest}>
     {cost} ლარი
   </StyledContainer>
 )
 
-export default Costbutton
+export default Cost

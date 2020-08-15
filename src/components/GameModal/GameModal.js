@@ -28,13 +28,13 @@ const INFORMATION = [
 const PLACES = [
   '5000 GEL', '3000 GEL', '1000 GEL'
 ]
-const GameModal = ({ ...rest }) => (
-  <Modal {...rest} size="medium" background="#352D4B">
+const GameModal = ({ isOpen, onClose }) => (
+  <Modal isOpen={isOpen} onClose={onClose} size="medium" background="#352D4B">
     <StyledContainer>
       <StyledLeftContainer>
         <Header>თამაში დაიწყო</Header>
-        {INFORMATION.map(info => (
-          <InformationContainer>
+        {INFORMATION.map((info, index) => (
+          <InformationContainer key={index}>
             <TextOne>{info.textOne}</TextOne>
             <TextTwo>{info.textTwo}</TextTwo>
           </InformationContainer>
@@ -47,15 +47,16 @@ const GameModal = ({ ...rest }) => (
         {PLACES.map((place, index) => (
           <Place key={index}>
             <Person full margin="0 0.6rem 0 0" />
-            <p style={{ color: '#fff', margin: '0 2.5rem 0 0' }}>{index + 1} ადგილი</p>
+            <p style={{ color: '#fff', margin: '0 3.5rem 0 0' }}>{index + 1} ადგილი</p>
             <p style={{ margin: 0 }}>{place}</p>
           </Place>
         ))}
-        <div style={{
-          width: '100%', display: 'flex', justifyContent: 'flex-end', marginTop: '3.7rem'
-        }}
+        <div
+          style={{
+            width: '100%', display: 'flex', justifyContent: 'flex-end', marginTop: '3.7rem'
+          }}
         >
-          <Button variant="start" active color="greenBtn">დაწყება</Button>
+          <Button variant="start" active color="greenBtn" type="button" onClick={onClose} button>დაწყება</Button>
         </div>
       </StyledRightContainer>
     </StyledContainer>

@@ -13,6 +13,7 @@ const PanelContainer = styled.div`
   background: red;
   border-radius: 5px;
   padding: 0 1rem;
+  height: 4rem;
   background-color: ${props => props.transparent ? 'transparent' : '#3D2F60'};
 
 `
