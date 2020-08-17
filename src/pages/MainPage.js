@@ -48,6 +48,8 @@ const MainPage = ({ theme }) => {
   }
   const handleGameModalClose = () => {
     setGameModalShow(false)
+  }
+  const handleGameStart = () => {
     window.location.href = '/game'
   }
   const handlePopupStartOpen = () => {
@@ -67,7 +69,7 @@ const MainPage = ({ theme }) => {
   }
 
   const renderGameModal = () => (
-    <GameModal isOpen={gameModalShow} onClose={() => handleGameModalClose()} />
+    <GameModal isOpen={gameModalShow} onClose={() => handleGameModalClose()} onStart={() => handleGameStart()} />
   )
   const renderHistoryModal = () => (
     <HistoryModal isOpen={historyModalShow} onClose={() => handleHistoryModalClose()} />
@@ -102,8 +104,8 @@ const MainPage = ({ theme }) => {
   )
   const renderCards = (total) => (
     <Grid style={{ marginTop: '0.7rem' }}>
-      {PLAYERSTATISTICS.map(item => (
-        <Grid.Item key={item.full} xs={12} sm={6} lg={4} xl={3}>
+      {PLAYERSTATISTICS.map((item, index) => (
+        <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
           <RegistryCardItem
             setRoomSize={setRoomSize}
             onRegister={() => handlePopupOpen()}
@@ -115,7 +117,12 @@ const MainPage = ({ theme }) => {
     </Grid>
   )
   const renderPopup = () => (
-    <GamePopup onFull={() => handlePopupSlide()} isOpen={popupShow} roomSize={roomSize} onClose={() => handlePopupClose()} />
+    <GamePopup
+      onFull={() => handlePopupSlide()}
+      isOpen={popupShow}
+      roomSize={roomSize}
+      onClose={() => handlePopupClose()}
+    />
   )
   const renderPopupStart = () => (
     <GamePopupStart isOpen={popStartShow} roomSize={roomSize} onClick={() => handleGameModalOpen()} />

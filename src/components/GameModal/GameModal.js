@@ -29,8 +29,8 @@ const INFORMATION = [
 const PLACES = [
   '5000 GEL', '3000 GEL', '1000 GEL'
 ]
-const GameModal = ({ isOpen, onClose }) => (
-  <Modal isOpen={isOpen} size="medium" background="#352D4B">
+const GameModal = ({ isOpen, onClose, onStart }) => (
+  <Modal isOpen={isOpen} onClose={onClose} size="medium" background="#352D4B">
     <StyledContainer>
       <StyledLeftContainer>
         <Header>თამაში დაიწყო</Header>
@@ -64,7 +64,7 @@ const GameModal = ({ isOpen, onClose }) => (
             width: '100%', display: 'flex', justifyContent: 'flex-end', marginTop: '3.7rem'
           }}
         >
-          <Button variant="start" active color="greenBtn" type="button" onClick={onClose} button>დაწყება</Button>
+          <Button variant="start" active color="greenBtn" type="button" onClick={onStart} button>დაწყება</Button>
         </div>
       </StyledRightContainer>
     </StyledContainer>

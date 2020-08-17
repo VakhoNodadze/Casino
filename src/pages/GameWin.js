@@ -78,7 +78,7 @@ const GameWin = ({ theme }) => {
       <SideBarContainer>
         <SideBarMain>
           <Cherry yellow />
-          <PrizeQuantity onClick={() => setModalShow(true)}>5000 <span style={{ fontSize: '1.2rem', color: '#fff' }}>GEL</span></PrizeQuantity>
+          <PrizeQuantity>5000 <span style={{ fontSize: '1.2rem', color: '#fff' }}>GEL</span></PrizeQuantity>
           <p style={{ fontSize: '1rem', color: '#fff', margin: 0 }}>საპრიზო ფონდი</p>
         </SideBarMain>
         <p style={{

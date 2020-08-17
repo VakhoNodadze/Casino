@@ -11,9 +11,12 @@ const GamePopup = ({
 }) => {
   const [number, setNumber] = useState(Math.floor(Math.random() * (roomSize - 1) + 1))
 
-  setTimeout(() => {
-    setNumber(prevCount => prevCount + 1)
-  }, 1000)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setNumber(prevCount => prevCount + 1)
+    }, 1000)
+    return () => clearTimeout(timeout)
+  }, [number])
 
   useEffect(() => {
     if (number === roomSize) {
