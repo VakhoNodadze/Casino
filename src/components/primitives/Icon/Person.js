@@ -2,9 +2,10 @@ import React from 'react'
 
 
 export const Person = ({ full, large, margin }) => {
-  const color = large ? '#1b606b' : '#3c2c63'
+  const emptyColor = large ? '#1b606b' : '#3c2c63'
+  const fullColor = large ? '#17FF4D' : '#95ee9d'
   const style = {
-    fill: full > 0 ? '#95ee9d' : color
+    fill: full > 0 ? fullColor : emptyColor
   }
   const styleSize = {
     width: large ? '2.2rem' : '1.375rem',

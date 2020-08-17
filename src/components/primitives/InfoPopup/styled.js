@@ -40,10 +40,16 @@ const StyledPositionContainer = styled.div`
   height: 100%;
   justify-content: flex-start;
   margin-top 12.2rem;
+  @media (max-width: 576px){
+    margin-top: 16.2rem;
+  }
 `
 const StyledHoldContainer = styled.div`
   width: calc(80% - 20px);
   height: 100%;
+  @media (max-width: 576px){
+    width: calc(100% - 10px);
+  }
 `
 
 const StyledContainer = styled.div`
@@ -51,7 +57,7 @@ const StyledContainer = styled.div`
   padding: 0.7rem 1.2rem;
   width: 100%;
   background-color: ${props => props.background || '#fff'};
-  border-radius: 10px;
+  border-radius: 0.7rem;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
   transform: ${props => {
     switch (props.fadeType) {

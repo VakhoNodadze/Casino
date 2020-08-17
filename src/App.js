@@ -13,12 +13,24 @@ import MusculBones from './components/MusculBones'
 import TopWinItem from './components/TopWinItem'
 import TopSpinItem from './components/TopSpinItem'
 import GamePopup from './components/GamePopup'
+import GamePopupStart from './components/GamePopupStart'
 
 const TOTALPLAYERS = [3, 5]
+const PLAYERSTATISTICS = [
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 },
+  { total: TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)], full: Math.floor(Math.random() * 5) + 0 }
+]
 const App = ({ theme }) => {
   const [historyModalShow, setHistoryModalShow] = useState(false)
   const [gameModalShow, setGameModalShow] = useState(false)
   const [popupShow, setPopupShow] = useState(false)
+  const [popStartShow, setPopupStartShow] = useState(false)
   const [roomSize, setRoomSize] = useState(0)
 
   const handleHistoryModalOpen = () => {
@@ -29,17 +41,25 @@ const App = ({ theme }) => {
   }
   const handleGameModalOpen = () => {
     setGameModalShow(true)
+    setPopupStartShow(false)
   }
   const handleGameModalClose = () => {
     setGameModalShow(false)
   }
+  const handlePopupStartOpen = () => {
+    setPopupStartShow(true)
+  }
   const handlePopupOpen = () => {
     setPopupShow(true)
   }
-  const handlePopUpClose = () => {
+  const handlePopupClose = () => {
+    setPopupShow(false)
+  }
+  const handlePopupSlide = () => {
     setTimeout(() => {
       setPopupShow(false)
-    }, 1500)
+      handlePopupStartOpen()
+    }, 1000)
   }
 
   const renderGameModal = () => (
@@ -78,15 +98,23 @@ const App = ({ theme }) => {
   )
   const renderCards = (total) => (
     <Grid style={{ marginTop: '0.7rem' }}>
-      {[...Array(8)].map((_, index) => (
-        <Grid.Item key={index} xs={12} sm={6} lg={4} xl={3}>
-          <RegistryCardItem setRoomSize={setRoomSize} onRegister={() => handlePopupOpen()} total={total || TOTALPLAYERS[Math.floor(Math.random() * TOTALPLAYERS.length)]} full={Math.floor(Math.random() * 5) + 0} />
+      {PLAYERSTATISTICS.map(item => (
+        <Grid.Item key={item.full} xs={12} sm={6} lg={4} xl={3}>
+          <RegistryCardItem
+            setRoomSize={setRoomSize}
+            onRegister={() => handlePopupOpen()}
+            total={total || item.total}
+            full={item.full}
+          />
         </Grid.Item>
       ))}
     </Grid>
   )
   const renderPopup = () => (
-    <GamePopup onFull={() => handlePopUpClose()} isOpen={popupShow} roomSize={roomSize} />
+    <GamePopup onFull={() => handlePopupSlide()} isOpen={popupShow} roomSize={roomSize} onClose={() => handlePopupClose()} />
+  )
+  const renderPopupStart = () => (
+    <GamePopupStart isOpen={popStartShow} roomSize={roomSize} onClick={() => handleGameModalOpen()} />
   )
   const playerPanes = [
     {
@@ -173,7 +201,7 @@ const App = ({ theme }) => {
 
   const renderTopSpin = () => (
     <TopSpinContainer>
-      <TopSpinHeader onClick={() => handleGameModalOpen()}>ტოპ სპინები</TopSpinHeader>
+      <TopSpinHeader>ტოპ სპინები</TopSpinHeader>
       {[...Array(5)].map((_, index) => <TopSpinItem key={index} />)}
     </TopSpinContainer>
   )
@@ -196,6 +224,7 @@ const App = ({ theme }) => {
       {historyModalShow && renderHistoryModal()}
       {gameModalShow && renderGameModal()}
       {popupShow && renderPopup()}
+      {popStartShow && renderPopupStart()}
     </Container>
   )
 }
@@ -209,7 +238,9 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   height: 4rem;
-
+  @media (max-width: 576px){
+    height: 8rem;
+  }
 `
 const LeaderJackpotPar = styled.p`
   font-size: 1rem;

@@ -6,16 +6,21 @@ import PersonIndicator from '../primitives/PersonIndicator'
 import Button from '../primitives/Button'
 
 
-const GamePopup = ({ isOpen, roomSize, onFull }) => {
+const GamePopup = ({
+  isOpen, roomSize, onFull, onClose
+}) => {
   const [number, setNumber] = useState(Math.floor(Math.random() * (roomSize - 1) + 1))
+
   setTimeout(() => {
     setNumber(prevCount => prevCount + 1)
   }, 1000)
+
   useEffect(() => {
     if (number === roomSize) {
       onFull()
     }
-  }, [number])
+  }, [number, onFull, roomSize])
+
   return (
     <InfoPopup background="#217C8B" isOpen={isOpen}>
       <div style={{ display: 'flex', flexDirection: 'column', color: '#fff' }}>
@@ -30,7 +35,7 @@ const GamePopup = ({ isOpen, roomSize, onFull }) => {
           </p>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Cost cost={roomSize} style={{ margin: 0 }} />
-            <p style={{ margin: '0 0 0 2rem', fontSize: '2.5rem', fontWeight: 'bold' }}>5000
+            <p style={{ margin: '0 0 0 2rem', fontSize: '2.5rem', fontWeight: 'bold' }}>{roomSize}000
               <span style={{ fontSize: '0.9rem', fontWeight: '300' }}>GEL</span>
             </p>
           </div>
@@ -48,7 +53,14 @@ const GamePopup = ({ isOpen, roomSize, onFull }) => {
             <div className="bar-horizontal" />
           </div>
         </div>
-        <Button variant="start" color="greenBtn" style={{ alignSelf: 'flex-end', marginTop: '0.5rem' }}>გაუქმება</Button>
+        <Button
+          variant="start"
+          color="greenBtn"
+          button
+          style={{ alignSelf: 'flex-end', marginTop: '0.5rem' }}
+          onClick={onClose}
+        >გაუქმება
+        </Button>
       </div>
     </InfoPopup>
   )
