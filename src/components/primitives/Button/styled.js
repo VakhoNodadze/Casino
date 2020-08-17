@@ -15,11 +15,12 @@ const StyledContainer = styled.div`
     animation-fill-mode: backwards;
     ${props => {
     switch (props.variant) {
-      // case 'close':
-      //   return css`
-      //       background-color: ${props.theme.palette[props.color][200]};
-      //       color: ${props.theme.palette[props.color][1000]};
-      //     `
+      case 'close':
+        return css`
+            background-color: ${props.theme.palette[props.color][200]};
+            color: ${props.theme.palette[props.color][1000]};
+            width: 8.4rem;
+          `
       case 'start':
         return css`
             background-color: ${props.active

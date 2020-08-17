@@ -30,7 +30,7 @@ const PLACES = [
   '5000 GEL', '3000 GEL', '1000 GEL'
 ]
 const GameModal = ({ isOpen, onClose }) => (
-  <Modal isOpen={isOpen} onClose={onClose} size="medium" background="#352D4B">
+  <Modal isOpen={isOpen} size="medium" background="#352D4B">
     <StyledContainer>
       <StyledLeftContainer>
         <Header>თამაში დაიწყო</Header>

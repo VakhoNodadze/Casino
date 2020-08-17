@@ -1,15 +1,29 @@
 import React from 'react'
 
 
-export const Person = ({ full, large, margin }) => {
-  const emptyColor = large ? '#1b606b' : '#3c2c63'
+export const Person = ({
+  full, large, margin, small
+}) => {
+  let COLOR
+  if (large) {
+    COLOR = '#1b606b'
+  }
+  if (!large) {
+    COLOR = '#3c2c63'
+  }
+  if (!large && small) {
+    COLOR = '#665e7d'
+  }
+  // const emptyColor = large ? '#1b606b' : '#3c2c63'
   const fullColor = large ? '#17FF4D' : '#95ee9d'
+  const width = large ? '2.2rem' : '1.375rem'
+  const height = large ? '2.2rem' : '1.375rem'
   const style = {
-    fill: full > 0 ? fullColor : emptyColor
+    fill: full > 0 ? fullColor : COLOR
   }
   const styleSize = {
-    width: large ? '2.2rem' : '1.375rem',
-    height: large ? '2.2rem' : '1.375rem',
+    width: small ? '0.8rem' : width,
+    height: small ? '0.8rem' : height,
     margin
   }
   return (
