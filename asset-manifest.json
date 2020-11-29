@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Casino/static/css/main.16f48798.chunk.css",
+    "main.js": "/Casino/static/js/main.09e972ec.chunk.js",
+    "main.js.map": "/Casino/static/js/main.09e972ec.chunk.js.map",
+    "runtime-main.js": "/Casino/static/js/runtime-main.59b9c451.js",
+    "runtime-main.js.map": "/Casino/static/js/runtime-main.59b9c451.js.map",
+    "static/js/2.583baf62.chunk.js": "/Casino/static/js/2.583baf62.chunk.js",
+    "static/js/2.583baf62.chunk.js.map": "/Casino/static/js/2.583baf62.chunk.js.map",
+    "index.html": "/Casino/index.html",
+    "precache-manifest.961d30760003ea2139210394ef7c06ec.js": "/Casino/precache-manifest.961d30760003ea2139210394ef7c06ec.js",
+    "service-worker.js": "/Casino/service-worker.js",
+    "static/css/main.16f48798.chunk.css.map": "/Casino/static/css/main.16f48798.chunk.css.map",
+    "static/js/2.583baf62.chunk.js.LICENSE.txt": "/Casino/static/js/2.583baf62.chunk.js.LICENSE.txt",
+    "static/media/xmas.png": "/Casino/static/media/xmas.bc900238.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.59b9c451.js",
+    "static/js/2.583baf62.chunk.js",
+    "static/css/main.16f48798.chunk.css",
+    "static/js/main.09e972ec.chunk.js"
+  ]
+}
