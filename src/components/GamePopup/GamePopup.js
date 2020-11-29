@@ -34,12 +34,12 @@ const GamePopup = ({
           <p style={{
             fontSize: '1rem', margin: 0, paddingBottom: '1rem', borderBottom: '4px solid #95C7EE'
           }}
-          >{roomSize} კაციანი
+          >{roomSize} places
           </p>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Cost cost={roomSize} style={{ margin: 0 }} />
             <p style={{ margin: '0 0 0 2rem', fontSize: '2.5rem', fontWeight: 'bold' }}>{roomSize}000
-              <span style={{ fontSize: '0.9rem', fontWeight: '300' }}>GEL</span>
+              <span style={{ fontSize: '0.9rem', fontWeight: '300' }}>USD</span>
             </p>
           </div>
         </div>
@@ -47,11 +47,11 @@ const GamePopup = ({
           display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80%', margin: '2rem auto 0.5rem auto'
         }}
         >
-          <PopupText>გთხოვთ დაელოდოთ მოწინააღმდეგეებს</PopupText>
+          <PopupText>Plaase wait for others to join</PopupText>
           <div style={{ width: '100%' }}>
             <PersonIndicator large total={roomSize} full={number} />
           </div>
-          <p style={{ fontSize: '0.85rem', margin: '1rem 0' }}>სავარაუდო მოლოდინის დრო: 30 წამი</p>
+          <p style={{ fontSize: '0.85rem', margin: '1rem 0' }}>Estimated Waiting Time: 30 sec</p>
           <div className="progress-horizontal">
             <div className="bar-horizontal" />
           </div>
@@ -62,7 +62,7 @@ const GamePopup = ({
           button
           style={{ alignSelf: 'flex-end', marginTop: '0.5rem' }}
           onClick={onClose}
-        >გაუქმება
+        >Cancel
         </Button>
       </div>
     </InfoPopup>

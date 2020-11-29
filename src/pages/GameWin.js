@@ -18,7 +18,7 @@ const LEADERBOARD = [
     winner: false
   },
   {
-    name: 'Levan',
+    name: 'Mike',
     score: 4423,
     coins: 1992,
     winner: false
@@ -51,9 +51,9 @@ const GameWin = ({ theme }) => {
       }}
       >
         <Prize />
-        <p style={{ fontSize: '1.3rem', color: '#fff', margin: 0 }}>გილოცავთ!</p>
+        <p style={{ fontSize: '1.3rem', color: '#fff', margin: 0 }}>Congratulations!</p>
         <p style={{ margin: '0.5rem 0', color: '#fff', fontSize: '0.8rem' }}>
-                თქვენ დაიკავეთ პირველი ადგილი
+                You got first place
         </p>
         <div style={{
           backgroundColor: '#201A31', borderRadius: '2.5rem', width: '70%', margin: '0.5rem auto 2rem auto', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem 0'
@@ -62,13 +62,13 @@ const GameWin = ({ theme }) => {
           <p style={{
             color: '#ffff00', margin: '0.5rem 0 0 0', fontSize: '2.5rem', fontWeight: 'bold', lineHeight: '1rem'
           }}
-          >5000<span style={{ fontSize: '0.8rem' }}>GEL</span>
+          >5000<span style={{ fontSize: '0.8rem' }}>USD</span>
           </p>
           <span style={{ color: '#fff', fontSize: '0.8rem' }}>
-              მოგებული თანხა
+              Prize
           </span>
         </div>
-        <Button variant="close" color="close" style={{ alignSelf: 'flex-end' }} onClick={() => handleModalClose()}>დახურვა</Button>
+        <Button variant="close" color="close" style={{ alignSelf: 'flex-end' }} onClick={() => handleModalClose()}>Close</Button>
       </div>
     </Modal>
   )
@@ -78,8 +78,8 @@ const GameWin = ({ theme }) => {
       <SideBarContainer>
         <SideBarMain>
           <Cherry yellow />
-          <PrizeQuantity>5000 <span style={{ fontSize: '1.2rem', color: '#fff' }}>GEL</span></PrizeQuantity>
-          <p style={{ fontSize: '1rem', color: '#fff', margin: 0 }}>საპრიზო ფონდი</p>
+          <PrizeQuantity>5000 <span style={{ fontSize: '1.2rem', color: '#fff' }}>USD</span></PrizeQuantity>
+          <p style={{ fontSize: '1rem', color: '#fff', margin: 0 }}>PRIZE</p>
         </SideBarMain>
         <p style={{
           color: '#fff', margin: '2rem', display: 'flex', alignItems: 'center'

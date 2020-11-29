@@ -6,16 +6,16 @@ import {
 import { Person } from '../primitives/Icon'
 
 const HEADERARRAY = [
-  'თარიღი', 'ღირებულება', 'რა Xი', 'რაოდენობა', 'მონაწილეები', 'ადგილი', 'მოგებული'
+  'Date', 'Price', 'Cost', 'Quantity', 'Players', 'Place', 'Won'
 ]
 const CONTENTARRAY = [
   {
     logo: null,
-    content: '23 იანვ'
+    content: '23 Jan'
   },
   {
     logo: null,
-    content: '2 ლარი'
+    content: '2 USD'
   },
   {
     logo: null,
@@ -23,11 +23,11 @@ const CONTENTARRAY = [
   },
   {
     logo: null,
-    content: '5 კაციანი'
+    content: '5 Places'
   },
   {
     logo: <Person full />,
-    content: 'ნოდარა, ელდარა, ემზარა, ზაირა, მერაბა'
+    content: 'Mike, George, Hanah, Qeti, Mariam'
   },
   {
     logo: null,
@@ -35,14 +35,14 @@ const CONTENTARRAY = [
   },
   {
     logo: null,
-    content: '5000 ლარი'
+    content: '5000 USD'
   }
 ]
 
 const HistoryModal = ({ ...rest }) => (
   <Modal {...rest} size="large" background="#35364A">
     <StyledContainer>
-      <StyledHeader>ისტორია</StyledHeader>
+      <StyledHeader>History</StyledHeader>
       <StyledSubHeaderContainer>
         {HEADERARRAY.map((item, index) => <StyledSubheader key={index}>{item}</StyledSubheader>)}
       </StyledSubHeaderContainer>

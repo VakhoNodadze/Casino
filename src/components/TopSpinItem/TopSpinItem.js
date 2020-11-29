@@ -10,11 +10,11 @@ const TopSpinItem = () => (
       <Time /> 23.04.19 <span>20:33</span>
     </StyledDate>
     <StyledPrize>
-        5000<span style={{ fontSize: '0.75rem', color: '#39B7FF' }}>GEL</span>
+        5000<span style={{ fontSize: '0.75rem', color: '#39B7FF' }}>USD</span>
     </StyledPrize>
     <StyledNames>
       <Person full />
-        ნოდარა, ელდარა, ემზარა
+        Michael, Mariam, George
     </StyledNames>
     <StyledSubPrize>
         1000 X 2

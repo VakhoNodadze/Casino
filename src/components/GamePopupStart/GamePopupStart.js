@@ -17,12 +17,12 @@ const GamePopupStart = ({ isOpen, roomSize, onClick }) => (
         <p style={{
           fontSize: '1rem', margin: 0, paddingBottom: '1rem', borderBottom: '4px solid #95C7EE'
         }}
-        >{roomSize} კაციანი
+        >{roomSize} places
         </p>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Cost cost={roomSize} style={{ margin: 0 }} />
           <p style={{ margin: '0 0 0 2rem', fontSize: '2.5rem', fontWeight: 'bold' }}>5000
-            <span style={{ fontSize: '0.9rem', fontWeight: '300' }}>GEL</span>
+            <span style={{ fontSize: '0.9rem', fontWeight: '300' }}>USD</span>
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ const GamePopupStart = ({ isOpen, roomSize, onClick }) => (
           color="greenBtn"
           style={{ alignSelf: 'flex-end', marginTop: '0.5rem' }}
           onClick={onClick}
-        >დაწყება
+        >Begin
         </Button>
       </div>
     </div>

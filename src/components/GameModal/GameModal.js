@@ -10,37 +10,37 @@ import PartialBorder from '../primitives/PartialBorder'
 
 const INFORMATION = [
   {
-    textOne: 'ხანგრძლივობა',
-    textTwo: '2 საათი'
+    textOne: 'Time',
+    textTwo: '2 hours'
   },
   {
-    textOne: 'ქოინების რაოდენობა',
-    textTwo: '2 ცალი'
+    textOne: 'Coin Quantity',
+    textTwo: '2'
   },
   {
-    textOne: 'მინიმალური ფსონი',
-    textTwo: '22 ლარი'
+    textOne: 'Minimal Bid',
+    textTwo: '22 USD'
   },
   {
-    textOne: 'მაქსიმალური ფსონი',
-    textTwo: '78 ლარი'
+    textOne: 'Maximum Bid',
+    textTwo: '78 USD'
   }
 ]
 const PLACES = [
-  '5000 GEL', '3000 GEL', '1000 GEL'
+  '5000 USD', '3000 USD', '1000 USD'
 ]
 const GameModal = ({ isOpen, onClose, onStart }) => (
   <Modal isOpen={isOpen} onClose={onClose} size="medium" background="#352D4B">
     <StyledContainer>
       <StyledLeftContainer>
-        <Header>თამაში დაიწყო</Header>
+        <Header>GAME STARTED</Header>
         {INFORMATION.map((info, index) => (
           <InformationContainer key={index}>
             <TextOne>{info.textOne}</TextOne>
             <TextTwo>{info.textTwo}</TextTwo>
           </InformationContainer>
         ))}
-        <RameText>აგერ იყოს რამე ტექსტიო ეწერა დიზაინში ხოდა აჰა იყოს</RameText>
+        <RameText>Lorem ipsum dolor sit</RameText>
       </StyledLeftContainer>
       <StyledRightContainer>
         <div style={{
@@ -50,11 +50,11 @@ const GameModal = ({ isOpen, onClose, onStart }) => (
           <PartialBorder text="JAMING JARS" background="#35364A" width="90%" textWidth="80%">
             <img src={XMas} alt="xmas" style={{ maxWidth: '100%' }} />
           </PartialBorder>
-          <Prize>5000<span style={{ fontSize: '0.9rem' }}>GEL</span></Prize>
+          <Prize>5000<span style={{ fontSize: '0.9rem' }}>USD</span></Prize>
           {PLACES.map((place, index) => (
             <Place key={index}>
               <Person full margin="0 0.6rem 0 0" />
-              <p style={{ color: '#fff', margin: '0 3.5rem 0 0' }}>{index + 1} ადგილი</p>
+              <p style={{ color: '#fff', margin: '0 3.5rem 0 0' }}>{index + 1} Place</p>
               <p style={{ margin: 0 }}>{place}</p>
             </Place>
           ))}
@@ -64,7 +64,7 @@ const GameModal = ({ isOpen, onClose, onStart }) => (
             width: '100%', display: 'flex', justifyContent: 'flex-end', marginTop: '3.7rem'
           }}
         >
-          <Button variant="start" active color="greenBtn" type="button" onClick={onStart} button>დაწყება</Button>
+          <Button variant="start" active color="greenBtn" type="button" onClick={onStart} button>Begin</Button>
         </div>
       </StyledRightContainer>
     </StyledContainer>

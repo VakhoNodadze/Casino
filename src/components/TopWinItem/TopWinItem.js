@@ -8,19 +8,19 @@ const TopWinItem = () => (
     <>
       <TopWinHeader>
         <TopWinContentItem>
-          <span>ნომერი</span>
+          <span>Number</span>
         </TopWinContentItem>
         <TopWinContentItem>
-          <span>დრო</span>
+          <span>Time</span>
         </TopWinContentItem>
         <TopWinContentItem>
-          <span>კოეფიციენტი</span>
+          <span>Coeficient</span>
         </TopWinContentItem>
         <TopWinContentItem>
-          <span>მომხარებელი</span>
+          <span>Users</span>
         </TopWinContentItem>
         <TopWinContentItem>
-          <span>მოგებული თანხა</span>
+          <span>Won Money</span>
         </TopWinContentItem>
       </TopWinHeader>
       {[...Array(8)].map((_, index) => (

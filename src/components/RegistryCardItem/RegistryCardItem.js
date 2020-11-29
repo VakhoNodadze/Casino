@@ -18,16 +18,16 @@ const RegistryCardItem = ({
     <StyledContainer>
       <StyledNumberIndicatorContainer>
         <StyledNumberIndicator>
-          <Person full />  {total} კაციანი
+          <Person full />  {total} Places
         </StyledNumberIndicator>
       </StyledNumberIndicatorContainer>
       <StyledPrizeContainer>
-        <StyledPrizeMainTxt>5000<span style={{ fontSize: '1.25rem' }}>GEL</span></StyledPrizeMainTxt>
-        <StyledPrizeSubTxt>მაქს. მოგება</StyledPrizeSubTxt>
+        <StyledPrizeMainTxt>5000<span style={{ fontSize: '1.25rem' }}>USD</span></StyledPrizeMainTxt>
+        <StyledPrizeSubTxt>Max Win</StyledPrizeSubTxt>
       </StyledPrizeContainer>
       <PersonIndicator total={total} full={full} />
       <Cost cost={total} />
-      <Button fluid button onClick={handleClick}>რეგისტრაცია</Button>
+      <Button fluid button onClick={handleClick}>Register</Button>
     </StyledContainer>
   )
 }
