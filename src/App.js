@@ -7,8 +7,8 @@ const App = () => (
     <>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/game" exact component={GameWin} />
+          <Route path="/Casino" exact component={MainPage} />
+          <Route path="/Casino/game" exact component={GameWin} />
         </Switch>
       </BrowserRouter>
     </>
