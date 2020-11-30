@@ -3,7 +3,7 @@ import StyledContainer from './styled'
 
 const Cost = ({ cost, ...rest }) => (
   <StyledContainer {...rest}>
-    {cost} ლარი
+    {cost} USD
   </StyledContainer>
 )
 
