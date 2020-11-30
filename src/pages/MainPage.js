@@ -50,7 +50,7 @@ const MainPage = ({ theme }) => {
     setGameModalShow(false)
   }
   const handleGameStart = () => {
-    window.location.href = '/Casino/game'
+    window.location.href = '/game'
   }
   const handlePopupStartOpen = () => {
     setPopupStartShow(true)
