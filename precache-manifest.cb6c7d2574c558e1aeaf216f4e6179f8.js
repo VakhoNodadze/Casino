@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3b766d2313c2efce3cee90ec74a52019",
+    "revision": "f96e34e5363b3df4b9ebff43d644e4a2",
     "url": "/Casino/index.html"
   },
   {
-    "revision": "4acf05b70b554d9332ac",
+    "revision": "c1defc26964dfb62eae5",
     "url": "/Casino/static/css/main.16f48798.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Casino/static/js/2.583baf62.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4acf05b70b554d9332ac",
-    "url": "/Casino/static/js/main.12d80d5c.chunk.js"
+    "revision": "c1defc26964dfb62eae5",
+    "url": "/Casino/static/js/main.0fc8d533.chunk.js"
   },
   {
     "revision": "ad0981aa338e7f3a77cf",
