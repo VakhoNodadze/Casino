@@ -5,10 +5,10 @@ import GameWin from './pages/GameWin'
 
 const App = () => (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Switch>
-          <Route path="/Casino" exact component={MainPage} />
-          <Route path="/Casino/game" exact component={GameWin} />
+          <Route path="/" exact component={MainPage} />
+          <Route path="/game" component={GameWin} />
         </Switch>
       </BrowserRouter>
     </>
